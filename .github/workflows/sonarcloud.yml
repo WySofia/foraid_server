@@ -10,7 +10,7 @@ on:
 
 jobs:
     build-and-analyze:
-        name: Build, Test and Analyze with SonarCloud
+        name: SonarCloud analysis
         runs-on: ubuntu-latest
 
         steps:
@@ -32,7 +32,7 @@ jobs:
 
             - name: Run tests with coverage
               run: |
-                  pytest --cov
+                  pytest --cov --cov-report=xml
 
             - name: SonarCloud Scan
               uses: SonarSource/sonarcloud-github-action@master

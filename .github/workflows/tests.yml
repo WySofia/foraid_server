@@ -1,4 +1,4 @@
-name: tests
+name: Tests
 run-name: ${{ github.actor }} is running GitHub Actions 🚀
 
 on:
@@ -30,4 +30,4 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          pytest --cov
+          pytest --cov --cov-report=xml
