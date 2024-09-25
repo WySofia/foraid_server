@@ -78,11 +78,17 @@ CREATE TABLE tercios (
     nombre VARCHAR(50) NOT NULL
 );
 
+-- Insertar registros iniciales en 'tercios'
+INSERT INTO tercios (nombre) VALUES ('Superior'), ('Medio'), ('Inferior');
+
 -- Tabla 'facciones'
 CREATE TABLE facciones (
     faccion_id SERIAL PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL
 );
+
+-- Insertar registros iniciales en 'facciones'
+INSERT INTO facciones (nombre) VALUES ('Ojos'), ('Nariz'), ('Boca'), ('Orejas'), ('Cejas'), ('Cabello'), ('Barba'), ('Bigote'), ('Piel'), ('Frente'), ('Mentón'), ('Mejillas');
 
 -- Tabla de 'metadatos_imagen'
 CREATE TABLE metadatos_imagen (
