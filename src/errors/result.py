@@ -1,16 +1,12 @@
-from typing import Generic, TypeVar, Callable, Any
-
+from typing import Any, Callable
 from src.errors.custom_error import CustomError, ErrorTag, handle_error
 
-T = TypeVar("T")
-E = TypeVar("E", bound=CustomError)
 
-
-class Result(Generic[T, E]):
+class Result[T, E]:
     pass
 
 
-class Ok(Result[T, E]):
+class Ok[T, E](Result[T, E]):
     def __init__(self, value: T):
         self.value = value
 
@@ -27,7 +23,7 @@ class Ok(Result[T, E]):
         return f"Ok({self.value})"
 
 
-class Err(Result[T, E]):
+class Err[T, E](Result[T, E]):
     def __init__(self, error: E):
         self.error = error
 
@@ -44,15 +40,15 @@ class Err(Result[T, E]):
         return f"Err({self.error})"
 
 
-def ok(value: T) -> Ok[T, Any]:
+def ok[T](value: T) -> Ok[T, Any]:
     return Ok(value)
 
 
-def err(error: E) -> Err[Any, E]:
+def err[E](error: E) -> Err[Any, E]:
     return Err(error)
 
 
-def map_result(result: Result[T, E], func: Callable[[T], Any]) -> Result[Any, E]:
+def map_result[T, E](result: Result[T, E], func: Callable[[T], Any]) -> Result[Any, E]:
     if isinstance(result, Ok):
         try:
             return Ok(func(result.value))
@@ -62,7 +58,9 @@ def map_result(result: Result[T, E], func: Callable[[T], Any]) -> Result[Any, E]
         return result
 
 
-def map_err_result(result: Result[T, E], func: Callable[[E], Any]) -> Result[T, Any]:
+def map_err_result[
+    T, E
+](result: Result[T, E], func: Callable[[E], Any]) -> Result[T, Any]:
     if isinstance(result, Err):
         try:
             return Err(func(result.error))
