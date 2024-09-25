@@ -11,3 +11,6 @@ def test_add(input_x, input_y, expected):
 @pytest.mark.parametrize("input_x, expected", [(1, False), (2, True)])
 def test_is_even(input_x, expected):
     assert is_even(input_x) == expected
+
+def test_add():
+    assert add(1, 2) == 4
