@@ -1,7 +1,8 @@
 import math
+from typing import List
 
 from src.errors.custom_error import CustomError, ErrorTag, handle_error
-from src.errors.result import Err, Ok, Result
+from src.errors.result import Err, Ok, Result, map_result
 
 
 def add(x: int, y: int) -> int:
@@ -16,13 +17,3 @@ def safe_div(a: float, b: float) -> Result[float, CustomError]:
     if b == 0:
         return Err(handle_error(ErrorTag.LOGIC_ERROR, "No division by zero"))
     return Ok(a / b)
-
-
-def safe_sqrt(x: float) -> Result[float, CustomError]:
-    if x < 0:
-        return Err(
-            handle_error(
-                ErrorTag.VALIDATION_ERROR, "No square root of negative numbers"
-            )
-        )
-    return Ok(math.sqrt(x))
