@@ -6,3 +6,7 @@ alembic
 python-jose[cryptography]
 passlib[bcrypt]
 pydantic
+pytest
+black
+pytest
+pytest-cov
