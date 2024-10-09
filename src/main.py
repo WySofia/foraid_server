@@ -1,19 +1,15 @@
-import math
-from typing import List
+from dotenv import load_dotenv
+from fastapi import FastAPI
+from src.routers.auth import auth_router
+from src.routers.users import users_router
 
-from src.errors.custom_error import CustomError, ErrorTag, handle_error
-from src.errors.result import Err, Ok, Result, map_result
+app = FastAPI()
 
-
-def add(x: int, y: int) -> int:
-    return x + y
-
-
-def is_even(x: int) -> bool:
-    return x % 2 == 0
+app.include_router(auth_router)
+app.include_router(users_router)
 
 
-def safe_div(a: float, b: float) -> Result[float, CustomError]:
-    if b == 0:
-        return Err(handle_error(ErrorTag.LOGIC_ERROR, "No division by zero"))
-    return Ok(a / b)
+# ruta de prueba
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
