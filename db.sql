@@ -4,6 +4,7 @@ CREATE TABLE Usuarios (
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
     correo VARCHAR(100) UNIQUE NOT NULL,
+    contrasenia_hash TEXT NOT NULL,
     cargo VARCHAR(50),
     rango VARCHAR(50)
 );
