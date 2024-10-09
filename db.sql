@@ -32,7 +32,6 @@ CREATE TABLE Casos (
     calle_secundaria VARCHAR(100),
     provincia VARCHAR(50),
     canton VARCHAR(50),
-    coordenadas VARCHAR(100),
     FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario),
     FOREIGN KEY (id_tipo_caso) REFERENCES TipoCaso(id_tipo_caso)
 );
