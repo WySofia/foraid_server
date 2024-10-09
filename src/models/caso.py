@@ -17,6 +17,6 @@ class Caso(Base):
     provincia = Column(String(50))
     canton = Column(String(50))
 
-    usuario = relationship("Usuario", back_populates="casos")
-    tipo_caso = relationship("TipoCaso", back_populates="casos")
-    identikits = relationship("Identikit", back_populates="caso")
+    usuario = relationship("src.models.usuario.Usuario", back_populates="casos")
+    tipo_caso = relationship("src.models.tipo_caso.TipoCaso", back_populates="casos")
+    identikits = relationship("src.models.identikit.Identikit", back_populates="caso")

@@ -14,6 +14,6 @@ class Identikit(Base):
     )
     imagen = Column(String(255))
 
-    caso = relationship("Caso", back_populates="identikits")
-    metodo_creacion = relationship("MetodoCreacion", back_populates="identikits")
-    caracteristicas = relationship("Caracteristica", back_populates="identikit")
+    caso = relationship("src.models.caso.Caso", back_populates="identikits")
+    metodo_creacion = relationship("src.models.metodo_creacion.MetodoCreacion", back_populates="identikits")
+    caracteristicas = relationship("src.models.caracteristica.Caracteristica", back_populates="identikit")

@@ -9,4 +9,4 @@ class TipoCaso(Base):
     id_tipo_caso = Column(Integer, primary_key=True, index=True)
     nombre = Column(String(50), unique=True, nullable=False)
 
-    casos = relationship("Caso", back_populates="tipo_caso")
+    casos = relationship("src.models.caso.Caso", back_populates="tipo_caso")

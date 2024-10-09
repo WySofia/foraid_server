@@ -13,4 +13,4 @@ class Caracteristica(Base):
     nombre_caracteristica = Column(String(50), nullable=False)
     descripcion = Column(Text)
 
-    identikit = relationship("Identikit", back_populates="caracteristicas")
+    identikit = relationship("src.models.identikit.Identikit", back_populates="caracteristicas")

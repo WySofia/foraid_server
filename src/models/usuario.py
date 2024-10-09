@@ -14,4 +14,4 @@ class Usuario(Base):
     cargo = Column(String(50))
     rango = Column(String(50))
 
-    casos = relationship("Caso", back_populates="usuario")
+    casos = relationship("src.models.caso.Caso", back_populates="usuario")
