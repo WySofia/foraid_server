@@ -1,5 +1,4 @@
 from typing import Any
-import pytest
 from src.errors.custom_error import LogicError, DataError, ErrorTag, handle_error
 from src.errors.result import Result, Ok, Err, ok, err, map_result, map_err_result
 
