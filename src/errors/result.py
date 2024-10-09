@@ -1,5 +1,4 @@
 from typing import Generic, TypeVar, Callable, Any
-
 from src.errors.custom_error import CustomError, ErrorTag, handle_error
 
 T = TypeVar("T")
@@ -16,10 +15,13 @@ class Ok(Result[T, E]):
 
     def is_ok(self) -> bool:
         return True
+
     def is_err(self) -> bool:
         return False
+
     def unwrap(self) -> T:
         return self.value
+
     def __repr__(self) -> str:
         return f"Ok({self.value})"
 
@@ -30,10 +32,13 @@ class Err(Result[T, E]):
 
     def is_ok(self) -> bool:
         return False
+
     def is_err(self) -> bool:
         return True
+
     def unwrap_err(self) -> E:
         return self.error
+
     def __repr__(self) -> str:
         return f"Err({self.error})"
 

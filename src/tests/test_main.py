@@ -1,7 +1,20 @@
 import pytest
 from src.errors.custom_error import LogicError
 from src.errors.result import Err, Ok
-from src.main import add, is_even, safe_div
+
+
+def add(x: int, y: int) -> int:
+    return x + y
+
+
+def is_even(x: int) -> bool:
+    return x % 2 == 0
+
+
+def safe_div(x: int, y: int):
+    if y == 0:
+        return Err(LogicError("No division by zero"))
+    return Ok(x / y)
 
 
 @pytest.mark.parametrize("input_x, input_y, expected", [(1, 2, 3)])
